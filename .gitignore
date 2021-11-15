@@ -1,6 +1,7 @@
 
 # self added files
 env_osint/
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
