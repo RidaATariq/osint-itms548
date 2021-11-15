@@ -1,3 +1,7 @@
+
+# self added files
+env_osint/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
