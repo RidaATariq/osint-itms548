@@ -1,8 +1,10 @@
-import twitch
-import xconfig
+import praw
+import config
 
-client = twitch.TwitchHelix(client_id=xconfig.client_id,
-                            client_secret=xconfig.client_secret)
-
-client.get_oauth()
-print(client.get_streams())
+reddit = praw.Reddit(
+    client_id=config.client_id,
+    client_secret=config.client_secret,
+    user_agent=config.user_agent,
+    username=config.username,
+    password=config.password,
+)

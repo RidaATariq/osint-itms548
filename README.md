@@ -12,6 +12,8 @@ virtualenv env
 source /env/bin/activate
 ```
 
+I have already added the virtualenv i was using so activate it using `source /env_osint/bin/activate`
+
 Install requirements:
 
 Run the following command:
