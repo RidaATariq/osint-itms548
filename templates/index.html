@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>OSINT TOOL</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Custom CSS & JS -->
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <!-- Bootstrap-table -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.css" />
 </head>
+
 <body>
-    
+    <nav class="navbar navbar-expand-md navbar-light bg-dark">
+        <h1 class="text-light" href="#">
+            <a href="/" class="badge badge-dark">OSINT TOOL</a>
+        </h1>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <form class="form-inline my-3 my-lg-1" action="{{ url_for('index') }}" method="POST">
+                <input class="form-control mr-sm-3" type="search" placeholder="Enter as x AND y AND..."
+                    aria-label="Search" name="btn" required />
+                <button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit" name="button">
+                    Search
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <hr />
+    <div class="container-fluid">
+        {% if banner %}
+        <div class="card bg-dark">
+            <div class="mx-auto card-body text-light">{{ banner }}</div>
+        </div>
+        {% endif %}
+        <br />
+
+        {% if data %}
+        <div class="table-responsive">
+            <table data-toggle="table" data-search="true" data-search-placeholder="filter">
+                <thead class=" thead-dark">
+                    <tr>
+                        <th data-sortable="true" width="100rem">Post ID</th>
+                        <th data-sortable="true">Subreddit</th>
+                        <th>Title</th>
+                        <th data-sortable="true">Num. Comments</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, value in data.items()%}
+                    <tr>
+                        <td>
+                            {{ value["post_id"] }}
+                        </td>
+                        <td>
+                            {{ value["subreddit"] }}
+                        </td>
+                        <td>
+                            {{ value["title"] | wordwrap }}
+                        </td>
+                        <td>
+                            {{ value["num_comments"]}}
+                        </td>
+                        <td>
+                            {{ value["author"]}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        {% endif %}
+        <small><span id="searchAgain"></span></small>
+    </div>
+
+    <hr />
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
 </body>
+
 </html>
