@@ -12,6 +12,9 @@ Run the following command:
 pip install -r requirements
 ```
 
+#### How to run
+`python app.py`
+
 #### Twitter
 
 Data collected from `Twitter`:
