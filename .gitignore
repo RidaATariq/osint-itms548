@@ -2,7 +2,7 @@
 # self added files
 # env_osint/
 .vscode/
-xconfig.py
+hconfig.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

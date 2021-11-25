@@ -3,14 +3,7 @@
 
 This is an OSINT Tool whose aim is to collect data from Twitter and Twitch using their provided API.
 ### How to use
-Creating virtual environemt:
-```txt
-#creating envirotnment
-virtualenv env
-
-#activating the environment
-source /env/bin/activate
-```
+To get this to work you need to install Python3.7. It wont work without it
 
 Install requirements:
 
@@ -19,11 +12,18 @@ Run the following command:
 pip install -r requirements
 ```
 
+#### How to run
+`python app.py`
+
 #### Twitter
 
 Data collected from `Twitter`:
 - 
 
-#### Twitch
-Data collected from `Twitch`:
-- 
+#### Reddit
+Data collected from `Reddit`:
+- Post ID
+- Username
+- Subreddit
+- Titlte
+- Number of comments
