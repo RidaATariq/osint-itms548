@@ -9,11 +9,11 @@ Install requirements:
 
 Run the following command:
 ```txt
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 #### How to run
-`python app.py`
+`python app.py` (or `python3 app.py`)
 
 #### Twitter
 
