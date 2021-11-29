@@ -1,6 +1,7 @@
 import praw
 import csv
 from hconfig import c_id, secret, usr, pwd, agent
+import pandas as pd
 
 
 # Reddit Functions
@@ -22,6 +23,12 @@ def get_data(keywords):
     data_pool = subreddit.search(keywords, limit=None, time_filter="year")
 
     rv = {}
+    post_id = []
+    subred = []
+    post_title = []
+    num_com = []
+    post_auth = []
+    
     for keywords in data_pool:
         # add the posts to our dict as they are being called
         rv[keywords.title] = {
@@ -32,37 +39,20 @@ def get_data(keywords):
             "author": keywords.author,
         }
         
-    with open('testRedditFetch.csv', 'a') as f:
-        headers = ['ID', 'Subreddit', 'Title', 'Number of Comments', 'Author']
-        writer = csv.DictWriter(f, fieldnames=headers,
-                                extrasaction='ignore', dialect='excel')
-        writer.writeheader()
-        for post in data_pool:
-            data = {'ID: {}, Subreddit: {}, Title: {}, Number of comments: {}, Author: {}'.format(post,
-                                                                                                  post.subreddit,
-                                                                                                  post.title,
-                                                                                                  post.num_comments,
-                                                                                                  post.author)}
-            print(writer.writerow(data))
+        post_id.append(keywords.id)
+        subred.append(keywords.subreddit)
+        post_title.append(keywords.title)
+        num_com.append(keywords.num_comments)
+        post_auth.append(keywords.author)
+        
+    # sending to csv
+    df = pd.DataFrame({'ID': post_id,
+                       'Author': post_auth,
+                       'Subreddit': subred,
+                       'Title': post_title,
+                       'Number of comments': num_com,
+                       
+                       })
 
+    df.to_csv('reddit_dataset.csv', index=False)
     return rv
-
-
-# def to_csv(data):
-#     with open('testRedditFetch.csv', 'a') as f:
-#         headers = ['ID', 'Subreddit', 'Title', 'Number of Comments', 'Author']
-#         writer = csv.DictWriter(f, fieldnames=headers,
-#                                 extrasaction='ignore', dialect='excel')
-#         writer.writeheader()
-#         for post in data:
-#             data = {'ID: {}, Subreddit: {}, Title: {}, Number of comments: {}, Author: {}'.format(post,
-#                                                                                                   post.subreddit,
-#                                                                                                   post.title,
-#                                                                                                   post.num_comments,
-#                                                                                                   post.author)}
-#             return writer.writerow(data)
-
-
-# if __name__ == "__main__":
-#     get_data(keywords="")
-#     to_csv(get_data)
