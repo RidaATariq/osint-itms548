@@ -1,4 +1,5 @@
 import praw
+import csv
 from hconfig import c_id, secret, usr, pwd, agent
 
 
@@ -30,8 +31,38 @@ def get_data(keywords):
             "num_comments": keywords.num_comments,
             "author": keywords.author,
         }
+        
+    with open('testRedditFetch.csv', 'a') as f:
+        headers = ['ID', 'Subreddit', 'Title', 'Number of Comments', 'Author']
+        writer = csv.DictWriter(f, fieldnames=headers,
+                                extrasaction='ignore', dialect='excel')
+        writer.writeheader()
+        for post in data_pool:
+            data = {'ID: {}, Subreddit: {}, Title: {}, Number of comments: {}, Author: {}'.format(post,
+                                                                                                  post.subreddit,
+                                                                                                  post.title,
+                                                                                                  post.num_comments,
+                                                                                                  post.author)}
+            print(writer.writerow(data))
 
     return rv
 
-def to_csv(data):
-    pass
+
+# def to_csv(data):
+#     with open('testRedditFetch.csv', 'a') as f:
+#         headers = ['ID', 'Subreddit', 'Title', 'Number of Comments', 'Author']
+#         writer = csv.DictWriter(f, fieldnames=headers,
+#                                 extrasaction='ignore', dialect='excel')
+#         writer.writeheader()
+#         for post in data:
+#             data = {'ID: {}, Subreddit: {}, Title: {}, Number of comments: {}, Author: {}'.format(post,
+#                                                                                                   post.subreddit,
+#                                                                                                   post.title,
+#                                                                                                   post.num_comments,
+#                                                                                                   post.author)}
+#             return writer.writerow(data)
+
+
+# if __name__ == "__main__":
+#     get_data(keywords="")
+#     to_csv(get_data)
