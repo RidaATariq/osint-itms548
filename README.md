@@ -21,6 +21,8 @@ Go to ***localhost:5000***
 
 ### Twitter
 ##### Data collected from `Twitter`:
+- ID
+- Tweet Text
 
 ### Reddit
 ##### Data collected from `Reddit`:
