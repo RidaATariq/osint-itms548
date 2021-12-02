@@ -2,3 +2,5 @@ Flask
 Flask-Testing
 nose
 praw
+pandas
+tweepy
