@@ -27,4 +27,4 @@ def search_tweets(keywords):
     return results
 
 tweets = search_tweets("bitcoin ransomware")
-print(tweets)
+tweets.to_csv("Twitter_dataset.csv", index = None)
