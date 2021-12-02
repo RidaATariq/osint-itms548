@@ -1,29 +1,31 @@
 # osint-itms548
 ---
 
-This is an OSINT Tool whose aim is to collect data from Twitter and Twitch using their provided API.
+This is an OSINT Tool whose aim is to collect data from Twitter and Reddit using their provided API.
+
 ### How to use
 To get this to work you need to install Python3.7. It wont work without it
 
 Install requirements:
-
 Run the following command:
 ```txt
 pip install -r requirements.txt
 ```
+Copy *hconfig-template.py* and rename it as *hconfig.py*. Modify the values as needed.
 
-#### How to run
-`python app.py` (or `python3 app.py`)
 
-#### Twitter
+### How to run
+Run `python app.py` (or `python3 app.py`) in your terminal
+Go to ***localhost:5000***
 
-Data collected from `Twitter`:
-- 
 
-#### Reddit
-Data collected from `Reddit`:
+### Twitter
+##### Data collected from `Twitter`:
+
+### Reddit
+##### Data collected from `Reddit`:
 - Post ID
 - Username
 - Subreddit
-- Titlte
+- Title
 - Number of comments
