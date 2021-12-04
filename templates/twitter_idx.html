@@ -54,28 +54,20 @@
                     <tr>
                         <th data-sortable="true" width="100rem">Tweet ID</th>
                         <th data-sortable="true">Tweet</th>
-                        <!-- <th>Title</th>
-                        <th data-sortable="true">Num. Comments</th>
-                        <th>Description</th> -->
+                        <th data-sortable="true">Date Posted</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for key, value in data.items()%}
+                    {% for key, value in data.items()%} 
                     <tr>
                         <td>
                             {{ value["post_id"] }}
                         </td>
                         <td>
-                            {{ value["subreddit"] }}
-                        </td>
-                        <!-- <td>
-                            {{ value["title"] | wordwrap }}
+                            {{ value["tweet"] }}
                         </td>
                         <td>
-                            {{ value["num_comments"]}}
-                        </td>
-                        <td>
-                            {{ value["author"]}} -->
+                            {{ value["tweet_date"] }}
                         </td>
                         {% endfor %}
                     </tr>
