@@ -51,3 +51,10 @@ for i in reddit_y_num:
 
 ##print(dateList)
 
+for i in range(len(dateList)):
+        testList.append(i)
+
+plt.xlabel('date')
+plt.ylabel('posts')
+plt.plot(dateList, testList)
+plt.show()
