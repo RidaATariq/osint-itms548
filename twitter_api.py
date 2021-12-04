@@ -3,6 +3,7 @@ import hconfig
 import json
 import pandas as pd
 
+
 def twitter_client():
     client = tweepy.Client(bearer_token=hconfig.bearer_token,consumer_key=hconfig.consumer_key,consumer_secret=hconfig.consumer_secret,
                            access_token=hconfig.access_token, access_token_secret=hconfig.access_secret)
@@ -33,3 +34,4 @@ def search_tweets(keywords):
 
 tweets = search_tweets("bitcoin ransomware")
 tweets.to_csv("Twitter_dataset.csv", index = None)
+
