@@ -23,6 +23,7 @@ Go to ***localhost:5000***
 ##### Data collected from `Twitter`:
 - ID
 - Tweet Text
+- Author ID
 
 ### Reddit
 ##### Data collected from `Reddit`:
@@ -31,3 +32,4 @@ Go to ***localhost:5000***
 - Subreddit
 - Title
 - Number of comments
+- Date/Time
