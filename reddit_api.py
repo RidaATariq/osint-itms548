@@ -1,5 +1,6 @@
 import praw
 import csv
+import datetime
 from hconfig import c_id, secret, usr, pwd, agent
 import pandas as pd
 
@@ -46,7 +47,7 @@ def get_data(keywords):
         post_title.append(keywords.title)
         num_com.append(keywords.num_comments)
         post_auth.append(keywords.author)
-        post_date.append(keywords.created_utc)
+        post_date.append(to_datetime(keywords.created_utc))
 
     # sending to csv
     df = pd.DataFrame({'ID': post_id,
@@ -59,3 +60,7 @@ def get_data(keywords):
 
     df.to_csv('reddit_dataset.csv', index=False)
     return rv
+
+def to_datetime(utc_time):
+    # converting utc to regular datetime
+    return datetime.datetime.fromtimestamp(utc_time)
