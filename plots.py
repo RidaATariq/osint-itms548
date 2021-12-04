@@ -30,4 +30,18 @@ x, y = zip(*myList)
 plt.xlabel('Authors')
 plt.ylabel('Number of Comments')
 plt.plot(x, y)
-plt.show()
+plt.show()##        datetime_obj = datetime.datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f')
+##        reddit_y_num.append(datetime_obj)
+##
+##print(reddit_y_num)
+
+for i in reddit_y_num:
+        date_time_raw = datetime.fromtimestamp(i)
+        post_date = datetime.date(date_time_raw)
+        dateList.append(post_date)
+##        print(post_date)
+##        date_time_formatted = datetime(i).isoformat()
+##        timestampList.append(date_time_formatted)
+
+##print(dateList)
+
