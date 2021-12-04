@@ -1,10 +1,13 @@
 import matplotlib.pylab as plt
 import csv
+from datetime import datetime, timezone
 
-x = []
-y = []
-y_num = []
-x_filtered = []
+reddit_x = []
+reddit_y = []
+reddit_y_num = []
+reddit_x_filtered = []
+dateList = []
+testList = []
 
 # open csv file generated using
 with open('reddit_dataset.csv','r') as reddit_csv:
@@ -16,9 +19,9 @@ with open('reddit_dataset.csv','r') as reddit_csv:
 		reddit_y.append(row[6])
 		
 # convert all values in list y from str to int
-for i in y:
-    j=int(i)
-    y_num.append(j)
+for i in reddit_y:
+    j=int(float(i))
+    reddit_y_num.append(j)
 
 # convert x and y lists to a dictionary
 ##redditDict = {reddit_x[i]: reddit_y_num[i] for i in range(len(reddit_x))}
