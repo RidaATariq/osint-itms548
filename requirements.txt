@@ -4,3 +4,4 @@ nose
 praw
 pandas
 tweepy
+matplotlib
