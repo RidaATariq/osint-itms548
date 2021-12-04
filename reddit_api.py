@@ -39,7 +39,7 @@ def get_data(keywords):
             "title": keywords.title,
             "num_comments": keywords.num_comments,
             "author": keywords.author,
-            "Date Posted": keywords.created_utc
+            "date_posted": to_datetime(keywords.created_utc)
         }
 
         post_id.append(keywords.id)
@@ -47,7 +47,7 @@ def get_data(keywords):
         post_title.append(keywords.title)
         num_com.append(keywords.num_comments)
         post_auth.append(keywords.author)
-        post_date.append(to_datetime(keywords.created_utc))
+        post_date.append(keywords.created_utc)
 
     # sending to csv
     df = pd.DataFrame({'ID': post_id,

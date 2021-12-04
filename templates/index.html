@@ -54,9 +54,10 @@
                     <tr>
                         <th data-sortable="true" width="100rem">Post ID</th>
                         <th data-sortable="true">Subreddit</th>
+                        <th>Username</th>
                         <th>Title</th>
                         <th data-sortable="true">Num. Comments</th>
-                        <th>Description</th>
+                        <th data-sortable="true">Date Posted</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,13 +70,16 @@
                             {{ value["subreddit"] }}
                         </td>
                         <td>
+                            {{ value["author"]}}
+                        </td>
+                        <td>
                             {{ value["title"] | wordwrap }}
                         </td>
                         <td>
                             {{ value["num_comments"]}}
                         </td>
                         <td>
-                            {{ value["author"]}}
+                            {{ value["date_posted"]}}
                         </td>
                         {% endfor %}
                     </tr>
