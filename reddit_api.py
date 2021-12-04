@@ -28,7 +28,8 @@ def get_data(keywords):
     post_title = []
     num_com = []
     post_auth = []
-    
+    post_date = []
+
     for keywords in data_pool:
         # add the posts to our dict as they are being called
         rv[keywords.title] = {
@@ -37,21 +38,23 @@ def get_data(keywords):
             "title": keywords.title,
             "num_comments": keywords.num_comments,
             "author": keywords.author,
+            "Date Posted": keywords.created_utc
         }
-        
+
         post_id.append(keywords.id)
         subred.append(keywords.subreddit)
         post_title.append(keywords.title)
         num_com.append(keywords.num_comments)
         post_auth.append(keywords.author)
-        
+        post_date.append(keywords.created_utc)
+
     # sending to csv
     df = pd.DataFrame({'ID': post_id,
                        'Author': post_auth,
                        'Subreddit': subred,
                        'Title': post_title,
                        'Number of comments': num_com,
-                       
+                       'Time Posted': post_date
                        })
 
     df.to_csv('reddit_dataset.csv', index=False)
