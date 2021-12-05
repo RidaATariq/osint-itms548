@@ -10,7 +10,7 @@ def twitter_client():
 
 def search_tweets(keywords):
     client = twitter_client()
-    tweets = client.search_recent_tweets(query=keywords, max_results=10, expansions='author_id',tweet_fields=["entities","created_at"])
+    tweets = client.search_recent_tweets(query=keywords, max_results=100, expansions='author_id',tweet_fields=["entities","created_at"])
 
     data = tweets.data
     results = pd.DataFrame(columns = ['id','text'])
