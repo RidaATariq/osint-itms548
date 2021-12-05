@@ -11,10 +11,12 @@ def twitter_client():
 
 def search_tweets(keywords):
     client = twitter_client()
-    tweets = client.search_recent_tweets(query=keywords, max_results=10, expansions='author_id')
-
-
+    tweets = client.search_recent_tweets(query=keywords, max_results=10, expansions='author_id',tweet_fields="entities")
+    #tweets = client.search_recent_tweets(query=keywords, max_results=10, expansions='entities.hashtags.tag')
+    #tweets = client.search_recent_tweets(query=keywords+" tweet.fields:entities", max_results=10)
+    #tweets = client.search_recent_tweets(query=keywords, max_results=10, expansions='referenced_tweets.id')
     # print(tweets)
+
 
     data = tweets.data
     results = pd.DataFrame(columns = ['id','text'])
@@ -25,8 +27,13 @@ def search_tweets(keywords):
             obj['id'] = tweet.id
             obj['text'] = tweet.text
             obj['author_id'] = tweet.author_id
-            # obj['username'] = tweet.entities.mentions.username
+            obj['entities'] = tweet.entities
+            try:
+                obj['username'] = tweet.entities['mentions'][0]['username']
+            except Exception as e:
+                obj['username'] = " "
             results = results.append(obj, ignore_index = True)
+
     else:
         return ''
 
@@ -34,4 +41,3 @@ def search_tweets(keywords):
 
 tweets = search_tweets("bitcoin ransomware")
 tweets.to_csv("Twitter_dataset.csv", index = None)
-
