@@ -54,7 +54,7 @@ for i in reddit_y_num:
 for i in range(len(dateList)):
         testList.append(i)
 
-plt.xlabel('date')
-plt.ylabel('posts')
-plt.plot(dateList, testList)
+plt.xlabel('posts')
+plt.ylabel('date')
+plt.plot(testList, dateList)
 plt.show()
