@@ -4,7 +4,6 @@ import datetime
 from hconfig import c_id, secret, usr, pwd, agent
 import pandas as pd
 
-
 # Reddit Functions
 def credentials():
     reddit = praw.Reddit(
@@ -15,7 +14,6 @@ def credentials():
         user_agent=agent,
     )
     return reddit
-
 
 # function to pull data
 def get_data(keywords):
@@ -65,5 +63,6 @@ def get_data(keywords):
     return rv
 
 def to_datetime(utc_time):
+    
     # converting utc to regular datetime
     return datetime.datetime.fromtimestamp(utc_time)

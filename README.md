@@ -34,5 +34,5 @@ Go to ***localhost:5000***
 - Username
 - Subreddit
 - Title
-- Number of comments
+- No. of comments
 - Date/Time

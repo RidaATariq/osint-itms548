@@ -32,7 +32,6 @@ def search_tweets(keywords):
 
             #This try except block tries to pull all hashtags
             try:
-                #obj['hashtag'] = tweet.entities['hashtags'][0]['tag']
                 hashtags = []
                 for hashtag_dict in tweet.entities['hashtags']:
                     hashtags.append(hashtag_dict['tag'])

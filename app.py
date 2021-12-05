@@ -15,7 +15,6 @@ def index():
         return render_template("index.html", banner="Could not find any related data")
     return render_template("index.html", banner="Search for your topic.")
 
-
 @app.route("/twitter", methods = ["GET", "POST"])
 def twitter_idx():
     if request.method == "POST":
