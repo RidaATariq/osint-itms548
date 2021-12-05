@@ -5,3 +5,4 @@ praw
 pandas
 tweepy
 matplotlib
+pyqt5
