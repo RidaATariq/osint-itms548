@@ -24,6 +24,9 @@ Go to ***localhost:5000***
 - ID
 - Tweet Text
 - Author ID
+- Date/Time
+- Hashtags
+- Username
 
 ### Reddit
 ##### Data collected from `Reddit`:
