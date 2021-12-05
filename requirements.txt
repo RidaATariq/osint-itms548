@@ -6,3 +6,4 @@ pandas
 tweepy
 matplotlib
 pyqt5
+seaborn
