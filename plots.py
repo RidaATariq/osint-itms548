@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@authors: Hareem Akram & Rida Tariq
+
+"""
+
 import matplotlib.pylab as plt
 import csv
 from datetime import datetime, timezone

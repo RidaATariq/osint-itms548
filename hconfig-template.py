@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Hareem Akram
+
+"""
+
 # [Reddit credentials]
 c_id = 'client id from https://www.reddit.com/prefs/apps'
 secret = 'client secret from https://www.reddit.com/prefs/apps'

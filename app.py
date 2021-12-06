@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@authors: David Ngige & Rida Tariq
+
+"""
+
 from flask import Flask, render_template, request
 from reddit_api import get_data, credentials, get_data
 

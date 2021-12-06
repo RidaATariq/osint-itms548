@@ -41,8 +41,9 @@ class Dashboard():
         
         # This creates the main window of an application
         window = Tk()
-        window.title('Dashboard')
+        window.title('OSINT Dashboard')
         window.geometry('1275x195')
+        
 
         window.configure(background='#FFFFFF')
         start = Label(window, text='Enter the number of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')

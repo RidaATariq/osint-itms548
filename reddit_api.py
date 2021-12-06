@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@authors: David Ngige, Hareem Akram & Rida Tariq
+
+"""
+
 import praw
 import csv
 import datetime
