@@ -4,6 +4,8 @@
 
 """
 
+#!/usr/bin/python
+
 import matplotlib.pylab as plt
 import csv
 from datetime import datetime, timezone
