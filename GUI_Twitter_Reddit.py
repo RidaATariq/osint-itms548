@@ -9,7 +9,7 @@ Created on Mon 12/6/2021
 from tkinter import *
 from twitter_api import search_tweets
 from reddit_api import get_data
-from plots import twitter_plot
+from plots import twitter_plot, reddit_plot
 
 class Dashboard():
     def __init__(self):
@@ -31,7 +31,7 @@ class Dashboard():
             if num_posts >= 0:
                 reddit_dataset = get_data("bitcoin ransomware", num_posts)
                 r_status.config(text='%d posts pulled & saved to Reddit CSV' %num_posts)
-
+                reddit_plot()
             else:
                 error = Label(window, text='Invalid input for No. of Posts.', background='#FFFFCB')
                 error.grid(column=1, row=11)
