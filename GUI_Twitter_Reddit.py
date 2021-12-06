@@ -2,7 +2,7 @@
 """
 Created on Mon 12/6/2021
 
-@author: Rida Tariq
+@authors: Hareem Akram, Rida Tariq
 
 """
 
@@ -42,12 +42,13 @@ class Dashboard():
         # This creates the main window of an application
         window = Tk()
         window.title('OSINT Dashboard')
-        window.geometry('1275x195')
+        window.geometry('1000x250')
         
 
         window.configure(background='#FFFFFF')
         start = Label(window, text='Enter the number of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
         start.grid(column=1, row=0)
+        start.config(anchor='center')
         gap = Label(window, text='', background='#FFFFFF').grid(column=0, row=1)
         gap = Label(window, text='', background='#FFFFFF').grid(column=1, row=1)
         gap = Label(window, text='', background='#FFFFFF').grid(column=3, row=1)
