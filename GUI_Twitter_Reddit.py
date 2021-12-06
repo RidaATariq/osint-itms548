@@ -11,6 +11,7 @@ from twitter_api import search_tweets
 from reddit_api import get_data
 from plots import twitter_plot, reddit_plot
 
+
 class Dashboard():
     def __init__(self):
         
@@ -37,6 +38,8 @@ class Dashboard():
                 error.grid(column=1, row=11)
                 return
         
+        
+        # This creates the main window of an application
         window = Tk()
         window.title('Dashboard')
         window.geometry('1275x195')
@@ -54,11 +57,13 @@ class Dashboard():
         gap = Label(window, text='', background='#FFFFFF').grid(column=3, row=5)
         gap = Label(window, text='', background='#FFFFFF').grid(column=1, row=7)
         
+        
         # =============================================================================
         # Twitter IO
         # =============================================================================
-        blue_color = '#DFF3F8'
-        reddit_color = '#FFF3F8'
+        
+        blue_color = '#87cefa'
+        reddit_color = '#ffa500'
 
 
         tweet_label = Label(window, text='  No. of Tweets (10-100): ', background=blue_color).grid(column=0, row=2)
@@ -75,11 +80,12 @@ class Dashboard():
                                 bg=blue_color, activebackground=reddit_color,
                                 height='1', width='19').grid(column=1, row=4)
         
+        
         # =============================================================================
         # Reddit IO
         # =============================================================================
 
-        reddit_label = Label(window, text='  No. of Posts (1-100): ', background=reddit_color).grid(column=0, row=6)
+        reddit_label = Label(window, text='  No. of Posts (01-100): ', background=reddit_color).grid(column=0, row=6)
 
         reddits1 = Entry(window, width=12, background=reddit_color)
         reddits1.grid(column=1, row=6)       
@@ -94,8 +100,9 @@ class Dashboard():
                                 height='1', width='19').grid(column=1, row=8)
         
         
-        
+        # Start the GUI
         window.mainloop()
+
 
 # Start of Code
 if __name__ == "__main__":
