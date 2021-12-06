@@ -7,3 +7,4 @@ tweepy
 matplotlib
 pyqt5
 seaborn
+tkinter
