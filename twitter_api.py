@@ -8,9 +8,9 @@ def twitter_client():
                            access_token=hconfig.access_token, access_token_secret=hconfig.access_secret)
     return client
 
-def search_tweets(keywords):
+def search_tweets(keywords, maxresults):
     client = twitter_client()
-    tweets = client.search_recent_tweets(query=keywords, max_results=100, expansions='author_id',tweet_fields=["entities","created_at"])
+    tweets = client.search_recent_tweets(query=keywords, max_results=maxresults, expansions='author_id',tweet_fields=["entities","created_at"])
 
     data = tweets.data
     results = pd.DataFrame(columns = ['id','text'])
@@ -46,5 +46,6 @@ def search_tweets(keywords):
 
     return results
 
-tweets = search_tweets("bitcoin ransomware")
-tweets.to_csv("Twitter_dataset.csv", index = None)
+if __name__ == "__main__":
+    tweets = search_tweets("bitcoin ransomware",50)
+    tweets.to_csv("Twitter_dataset.csv", index = None)
