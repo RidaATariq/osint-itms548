@@ -16,10 +16,10 @@ def credentials():
     return reddit
 
 # function to pull data
-def get_data(keywords):
+def get_data(keywords,maxresults=100):
     reddit = credentials()
     subreddit = reddit.subreddit("all")
-    data_pool = subreddit.search(keywords, limit=None, time_filter="year")
+    data_pool = subreddit.search(keywords, limit=maxresults, time_filter="year")
 
     rv = {}
     post_id = []

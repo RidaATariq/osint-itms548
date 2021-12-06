@@ -8,7 +8,7 @@ def twitter_client():
                            access_token=hconfig.access_token, access_token_secret=hconfig.access_secret)
     return client
 
-def search_tweets(keywords, maxresults):
+def search_tweets(keywords, maxresults=100):
     client = twitter_client()
     tweets = client.search_recent_tweets(query=keywords, max_results=maxresults, expansions='author_id',tweet_fields=["entities","created_at"])
 
