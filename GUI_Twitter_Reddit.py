@@ -16,7 +16,7 @@ class Dashboard():
         def t_compute():
             num_tweets = int(tweets1.get())
             if num_tweets >= 0:
-                tweets_dataset = search_tweets("bitcoin ransomware",num_tweets)
+                tweets_dataset = search_tweets("bitcoin ransomware", num_tweets)
                 tweets_dataset.to_csv("Twitter_dataset.csv", index = None)
                 t_status.config(text='%d tweets pulled & saved to Twitter CSV' %num_tweets)
             else:
@@ -25,11 +25,13 @@ class Dashboard():
                 return
         
         def r_compute():
-            num_tweets = int(tweets1.get())
-            if num_tweets >= 0:
-                reddit_dataset = get_data("bitcoin ransomware")
+            num_posts = int(reddits1.get())
+            if num_posts >= 0:
+                reddit_dataset = get_data("bitcoin ransomware", num_posts)
+                r_status.config(text='%d posts pulled & saved to Reddit CSV' %num_posts)
+
             else:
-                error = Label(window, text='Invalid input for No. of Tweets.', background='#FFFFCB')
+                error = Label(window, text='Invalid input for No. of Posts.', background='#FFFFCB')
                 error.grid(column=1, row=11)
                 return
         
@@ -38,7 +40,7 @@ class Dashboard():
         window.geometry('1200x195')
 
         window.configure(background='#FFFFFF')
-        start = Label(window, text='Enter the number of tweets/posts you want to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
+        start = Label(window, text='Enter the number of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
         start.grid(column=1, row=0)
         gap = Label(window, text='', background='#FFFFFF').grid(column=0, row=1)
         gap = Label(window, text='', background='#FFFFFF').grid(column=1, row=1)
@@ -75,7 +77,7 @@ class Dashboard():
         # Reddit IO
         # =============================================================================
 
-        reddit_label = Label(window, text='  No. of Posts (10-100): ', background=reddit_color).grid(column=0, row=6)
+        reddit_label = Label(window, text='  No. of Posts (1-100): ', background=reddit_color).grid(column=0, row=6)
 
         reddits1 = Entry(window, width=12, background=reddit_color)
         reddits1.grid(column=1, row=6)       
