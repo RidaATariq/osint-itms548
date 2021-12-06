@@ -9,6 +9,7 @@ Created on Mon 12/6/2021
 from tkinter import *
 from twitter_api import search_tweets
 from reddit_api import get_data
+from plots import twitter_plot
 
 class Dashboard():
     def __init__(self):
@@ -19,6 +20,7 @@ class Dashboard():
                 tweets_dataset = search_tweets("bitcoin ransomware", num_tweets)
                 tweets_dataset.to_csv("Twitter_dataset.csv", index = None)
                 t_status.config(text='%d tweets pulled & saved to Twitter CSV' %num_tweets)
+                twitter_plot()
             else:
                 error = Label(window, text='Invalid input for No. of Tweets.', background='#FFFFCB')
                 error.grid(column=1, row=11)
@@ -37,7 +39,7 @@ class Dashboard():
         
         window = Tk()
         window.title('Dashboard')
-        window.geometry('1200x195')
+        window.geometry('1275x195')
 
         window.configure(background='#FFFFFF')
         start = Label(window, text='Enter the number of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
@@ -69,9 +71,9 @@ class Dashboard():
         t_status = Label(window, text='', background=blue_color)
         t_status.grid(column=3, row=2)
         
-        button_twitter = Button(window, text='Twitter Pull', command=t_compute,
+        button_twitter = Button(window, text='Twitter Pull & Plot', command=t_compute,
                                 bg=blue_color, activebackground=reddit_color,
-                                height='1', width='15').grid(column=1, row=4)
+                                height='1', width='19').grid(column=1, row=4)
         
         # =============================================================================
         # Reddit IO
@@ -87,9 +89,9 @@ class Dashboard():
         r_status = Label(window, text='', background=reddit_color)
         r_status.grid(column=3, row=6)
 
-        button_reddit = Button(window, text='Reddit Pull', command=r_compute,
+        button_reddit = Button(window, text='Reddit Pull & Plot', command=r_compute,
                                 bg=reddit_color, activebackground=blue_color,
-                                height='1', width='15').grid(column=1, row=8)
+                                height='1', width='19').grid(column=1, row=8)
         
         
         
