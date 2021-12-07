@@ -10,13 +10,17 @@ import json
 import pandas as pd
 
 def twitter_client():
-    client = tweepy.Client(bearer_token=hconfig.bearer_token,consumer_key=hconfig.consumer_key,consumer_secret=hconfig.consumer_secret,
-                           access_token=hconfig.access_token, access_token_secret=hconfig.access_secret)
+    client = tweepy.Client(bearer_token=hconfig.bearer_token,
+                            consumer_key=hconfig.consumer_key,
+                            consumer_secret=hconfig.consumer_secret,
+                            access_token=hconfig.access_token,
+                            access_token_secret=hconfig.access_secret)
     return client
 
 def search_tweets(keywords, maxresults=100):
     client = twitter_client()
-    tweets = client.search_recent_tweets(query=keywords, max_results=maxresults, expansions='author_id',tweet_fields=["entities","created_at"])
+    tweets = client.search_recent_tweets(query=keywords, max_results=maxresults, 
+                                        expansions='author_id',tweet_fields=["entities","created_at"])
 
     data = tweets.data
     results = pd.DataFrame(columns = ['id','text'])
@@ -53,5 +57,5 @@ def search_tweets(keywords, maxresults=100):
     return results
 
 if __name__ == "__main__":
-    tweets = search_tweets("bitcoin ransomware",50)
+    tweets = search_tweets("bitcoin ransomware",100)
     tweets.to_csv("Twitter_dataset.csv", index = None)
