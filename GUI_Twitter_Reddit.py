@@ -2,7 +2,7 @@
 """
 Created on Mon 12/6/2021
 
-@authors: Hareem Akram, Rida Tariq
+@authors: Hareem Akram & Rida Tariq
 
 """
 
@@ -42,13 +42,18 @@ class Dashboard():
         # This creates the main window of an application
         window = Tk()
         window.title('OSINT Dashboard')
-        window.geometry('1000x250')
+        window.geometry('1500x250')
         
 
         window.configure(background='#FFFFFF')
-        start = Label(window, text='Enter the number of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
+        start = Label(window, text='Enter the no. of tweets/posts to pull and hit, Click button:', background='#FFFFFF', font='Helvetica 15 bold')
+        # start.config(anchor='center')
         start.grid(column=1, row=0)
-        start.config(anchor='center')
+        
+            
+        # window.columnconfigure(0, minsize=250)
+        # window.rowconfigure([0, 1], minsize=100)
+        
         gap = Label(window, text='', background='#FFFFFF').grid(column=0, row=1)
         gap = Label(window, text='', background='#FFFFFF').grid(column=1, row=1)
         gap = Label(window, text='', background='#FFFFFF').grid(column=3, row=1)
@@ -101,6 +106,7 @@ class Dashboard():
                                 bg=reddit_color, activebackground=blue_color,
                                 height='1', width='19').grid(column=1, row=8)
         
+        window.grid_columnconfigure(1, weight=1)
         
         # Start the GUI
         window.mainloop()
