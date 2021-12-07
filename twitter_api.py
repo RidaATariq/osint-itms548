@@ -45,7 +45,8 @@ def search_tweets(keywords, maxresults=100):
                 hashtags = []
                 for hashtag_dict in tweet.entities['hashtags']:
                     hashtags.append(hashtag_dict['tag'])
-                obj['hashtags'] = hashtags
+                    first = hashtags.pop(0)
+                obj['hashtags'] = first
             except Exception as e:
                 obj['hashtags'] = " "
 
